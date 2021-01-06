@@ -5,8 +5,8 @@
 </head>
 <body>
     <center>
-        <form>
         <h4>Task Menagment Tool - LOGIN</h4>
+        <form>
             <label>Email:</label><br>
             <input type="email" name="email"/><br>
             <label>Password:</label><br>
