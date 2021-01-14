@@ -17,7 +17,7 @@
         header("Location: /cacttus-s3-basic-web/task-menagment/add_task.php");
         die();
     }else {
-        echo "Wrong Email or Password!";
+        echo "Wrong Crendentials!";
         $_SESSION['logged_in'] = false;
     }
     
