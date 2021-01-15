@@ -1,5 +1,9 @@
 <?php
     require_once "db_con.php";
+    
+    function isUserLoggedIn() {
+        return isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+    }
 
     function storeUserToDb(array $user){
         global $dbconn;
