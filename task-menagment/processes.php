@@ -51,4 +51,16 @@
         session_start();
         session_destroy();
     }
+    function checkUserByEmail($email){
+        global $dbconn;
+
+        $sqlQuery = "SELECT * FROM `users` WHERE email=:email";
+        $statement = $dbconn->prepare($sqlQuery);
+        $statement->bindParam(':email', $email);
+        if($statement->execute()){
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+            return $user !==  false;
+        }
+        return false;
+    }
 ?>
