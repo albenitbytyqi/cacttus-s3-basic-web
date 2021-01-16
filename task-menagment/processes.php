@@ -47,4 +47,8 @@
         }
         return null;
     }
+    function signOut() {
+        session_start();
+        session_destroy();
+    }
 ?>
