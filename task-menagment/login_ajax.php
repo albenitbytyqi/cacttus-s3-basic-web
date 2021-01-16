@@ -40,11 +40,11 @@
             'email' : email,
             'password' : password
         }, function(response){
-            console.log(response);
             if(response.success == false){
-                alert("Wrong");
+                alert(response.message);
             }else{
-                location.reload();
+                // reloadi qetu nuk o ka funksjonon mos harro me kqyr!!!!
+                window.location.reload();
             }
         });
         

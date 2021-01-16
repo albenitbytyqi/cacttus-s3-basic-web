@@ -27,11 +27,12 @@
     $user = checkUserByEmailAndPass($email,$password);
 
     if($user != null){
-        // logged in
-        echo "Logged in!!!";
+    
         $_SESSION['logged_in'] = true;
-        $_SESSION['first_name'] = $user['first_name'];
+        $_SESSION['full_name'] = $user['full_name'];
         $_SESSION['email'] = $email;
+        $_SESSION['user_id'] = $user["id"];
+
 
         echo json_encode([
             'success' => true,

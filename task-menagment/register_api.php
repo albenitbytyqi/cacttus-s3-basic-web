@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     require_once "processes.php";
 
@@ -14,5 +15,5 @@
     ];
 
     storeUserToDb($user);
-    header("location: /cacttus-s3-basic-web/task-menagment/register.php");
+ //   header("location: /cacttus-s3-basic-web/task-menagment/register.php");
 ?>
