@@ -4,7 +4,7 @@
     require_once "processes.php";
 
     if(isUserLoggedIn()){
-        header("Location: /cacttus-s3-basic-web/task-menagment/add_task.php");
+        header("Location: /cacttus-s3-basic-web/task-menagment/task_list.php");
         die();
     }
 ?>
@@ -26,7 +26,7 @@
             <input type="submit" value="Log In"/>
         </form>
         <br>
-        <a href="/cacttus-s3-basic-web/task-menagment/register.php">Register here!</a>
+        <a href="/cacttus-s3-basic-web/task-menagment/register_ajax.php">Register here!</a>
     </center>
 </body>
 <script>
@@ -43,8 +43,7 @@
             if(response.success == false){
                 alert(response.message);
             }else{
-                // reloadi qetu nuk o ka funksjonon mos harro me kqyr!!!!
-                window.location.reload();
+                location.reload();  
             }
         });
         
