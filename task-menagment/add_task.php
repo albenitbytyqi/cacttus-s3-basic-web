@@ -1,6 +1,7 @@
 <?php
     session_start();
 
+
     require_once "processes.php";
 
     if(!isUserLoggedIn()){
@@ -17,16 +18,17 @@
     <body>
 
         <center>
-            Welcome <b><?php echo $_SESSION['full_name'] ?></b>
-            <a href="/cacttus-s3-basic-web/task-menagment/signout_api.php">Sign Out</a>
             <form>
-                <h2>New Post:</h2><br>
+                <h2>Add New Task:</h2><br>
                 <label>Title:</label><br>
                 <input type="text" name="title" size="52"/><br>
                 <label>Description:</label><br>
-                <textarea rows="5" cols="40" name="description">
-
-                </textarea>
+                <textarea rows="5" cols="40" name="description"></textarea><br><br>
+                Status: <select >
+                <option>ToDo</option>
+                <option>InProgress</option>
+                <option>Done</option>
+                </select>
             </form>
         </center>
 
