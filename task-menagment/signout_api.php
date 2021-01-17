@@ -18,5 +18,6 @@
         'message' => "User is Signout"
     ]);
     die();
+    
 
 ?>
