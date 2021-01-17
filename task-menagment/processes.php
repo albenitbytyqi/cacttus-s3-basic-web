@@ -66,21 +66,55 @@
     function storeTaskToDb(array $task){
         global $dbconn;
 
-        $sqlQuery = "INSERT INTO `tasks` (`taskTitle`,`taskDescription`,`status`)
-        VALUES (:task_title,:task_description,:status)";
+        $sqlQuery = "INSERT INTO `tasks` (taskTitle,taskDescription,status,user_id)
+        VALUES (:task_title,:task_description,:status,:user_id)";
 
         $statement = $dbconn->prepare($sqlQuery);
 
-        $statement->bindparam(":task_title", $task['task_title']);
-        $statement->bindParam(":email", $task['task_description']);
+        $statement->bindparam(":task_title", $task['title']);
+        $statement->bindParam(":task_description", $task['description']);
         $statement->bindParam(":status", $task['status']);
+        $statement->bindParam(":user_id",$_SESSION['user_id']);
+
+       
+
+    
 
         if($statement->execute()){
-            return true;
+            echo "mire";
         }else{
-            echo "Wrong";
-            return false;
+            print_r($statement->errorInfo());
             die();
+        }
+    }
+    function getTasksFromDb(){
+        global $dbconn;
+
+        // $sqlQuery = "SELECT `tasks`.*, `user`.full_name FROM `tasks` 
+        // INNER JOIN `users` ON `users`.id = `tasks`.user_id";
+
+        $sqlQuery = "Select * from tasks where user_id = " . $_SESSION['user_id'];
+
+        $statemant = $dbconn->prepare($sqlQuery);
+
+        if($statemant->execute()){
+            return $statemant->fetchAll(PDO::FETCH_ASSOC);;
+        }else{
+            return [];;
+        }
+    }
+    function delete($id){
+        global $dbconn;
+
+        $sqlQuery = "DELETE FROM tasks Where taskID =:id";
+
+        $statemant = $dbconn->prepare($sqlQuery);
+        $statemant->bindparam(':id',$id);
+
+        if($statemant->execute()){
+           return true;
+        }else {
+            return false;
         }
     }
 ?>
