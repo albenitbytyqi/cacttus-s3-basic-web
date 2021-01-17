@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+    session_start();
+?>
 <html>
 <head>
     <title>Register</title>
@@ -7,15 +9,15 @@
 <body>
     <center>
         <h4>Task Menagment Tool - REGISTER</h4>
-        <form method="POST" action="/cacttus-s3-basic-web/task-menagment/register_api.php">
+        <form onsubmit="return passwordCheck();" method="POST" action="/cacttus-s3-basic-web/task-menagment/register_api.php">
             <label>Full Name:</label><br>
-            <input id="id_fullname" type="text" name="full_name"/><br>
+            <input id="id_fullname" type="text" name="full_name" required/><br>
             <label>Email:</label><br>
-            <input id="id_email" type="email" name="email"/><br>
-            <label >Password:</label><br>
-            <p id="demo">a</p> 
-            <input id="id_password" type="password" name="password"/>
-            <br><br>
+            <input id="id_email" type="email" name="email" required/><br>
+            <label >Password:</label><br>     
+            <input id="id_password" type="password" name="password"/><br>
+            <span id="demo"></span>
+            <br>
             <input type="submit" value="Register"/>
         </form>
         <br>
@@ -24,13 +26,44 @@
 
 </body>
 <script>
-    check = function(validate){
+    function passwordCheck(){
         var pass = document.getElementById("id_password").value;
-        if(pass.length < 8){
-            document.getElementById("demo").innerHTML = "Password Length Must Be 8 Char";
+        if(pass == ""){
+            document.getElementById("demo").innerHTML = "Fill the password field";
             document.getElementById("demo").style.color="Red";
-            return("Too_Short");
+            return false;
         }
+        if(pass.length < 8){
+            document.getElementById("demo").innerHTML = "Password must be have 8 char";
+            document.getElementById("demo").style.color="Red";
+            return false;
+        }
+        if(pass.length > 16){
+            document.getElementById("demo").innerHTML = "Password must be until 16 char";
+            document.getElementById("demo").style.color="Red";
+            return false;
+        }
+        if(pass.search(/[A-Z]/i) < 0){
+            document.getElementById("demo").innerHTML = "Password must be have at least one Uppercase char";
+            document.getElementById("demo").style.color="Red";
+            return false;
+        }
+        if(pass.search(/[a-z]/i) < 0){
+            document.getElementById("demo").innerHTML = "Password must be have at least one Lowercase char";
+            document.getElementById("demo").style.color="Red";
+            return false;
+        }
+        if(pass.search(/[0-9]/) < 0){
+            document.getElementById("demo").innerHTML = "Password must be have at least one Digit number";
+            document.getElementById("demo").style.color="Red";
+            return false;
+        }
+        if(pass.search(/[!@#$%^&*]/) < 0){
+            document.getElementById("demo").innerHTML = "Password must be have at least one Special char";
+            document.getElementById("demo").style.color="Red";
+            return false;
+        }
+        
     }
     // function register(){
     //    const fullname = $("#id_fullname").val();
