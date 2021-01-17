@@ -55,4 +55,5 @@
     //     die();
     // }
     header("location: /cacttus-s3-basic-web/task-menagment/register_ajax.php");
+   //echo
 ?>
