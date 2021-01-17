@@ -1,5 +1,7 @@
 <?php
+    session_set_cookie_params(0);
     session_start();
+    require_once "processes.php";
     
     header('Content-Type: application/json');
     
@@ -10,8 +12,6 @@
         ]);
         die();
     }
-
-    require_once "processes.php";
 
     if(isUserLoggedIn()){
         echo json_encode([
