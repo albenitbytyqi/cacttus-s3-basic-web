@@ -31,7 +31,7 @@
         $_SESSION['logged_in'] = true;
         $_SESSION['full_name'] = $user['full_name'];
         $_SESSION['email'] = $email;
-        $_SESSION['user_id'] = $user["id"];
+        $_SESSION['user_id'] = $user["user_id"];
 
 
         echo json_encode([
