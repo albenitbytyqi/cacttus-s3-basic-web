@@ -34,7 +34,7 @@
         const email = $("#login_email").val();
         const password = $("#login_password").val();
 
-        const apiEndpoint = "http://localhost/cacttus-s3-basic-web/task-menagment/login_api.php"
+        const apiEndpoint = "/cacttus-s3-basic-web/task-menagment/login_api.php";
 
         $.post(apiEndpoint,{
             'email' : email,
@@ -42,7 +42,7 @@
         }, function(response){
             if(response.success == false){
                 alert(response.message);
-            }else{
+            }else{  
                 location.reload();  
             }
         });
