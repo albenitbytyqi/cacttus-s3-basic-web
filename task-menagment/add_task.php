@@ -28,7 +28,8 @@
                 <option>ToDo</option>
                 <option>InProgress</option>
                 <option>Done</option>
-                </select>
+                </select><br><br>
+                <input type="submit" value="Submit"/>
             </form>
         </center>
 
