@@ -63,4 +63,24 @@
         }
         return false;
     }
+    function storeTaskToDb(array $task){
+        global $dbconn;
+
+        $sqlQuery = "INSERT INTO `tasks` (`taskTitle`,`taskDescription`,`status`)
+        VALUES (:task_title,:task_description,:status)";
+
+        $statement = $dbconn->prepare($sqlQuery);
+
+        $statement->bindparam(":task_title", $task['task_title']);
+        $statement->bindParam(":email", $task['task_description']);
+        $statement->bindParam(":status", $task['status']);
+
+        if($statement->execute()){
+            return true;
+        }else{
+            echo "Wrong";
+            return false;
+            die();
+        }
+    }
 ?>
