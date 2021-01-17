@@ -4,6 +4,12 @@
     require_once "processes.php";
     
 
+    if(!isset($_SESSION['full_name'])){
+
+        header("location: /cacttus-s3-basic-web/task-menagment/login_ajax.php");
+        
+    }
+
 ?>
 <html>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -13,7 +19,7 @@
 <center>
         Welcome <b><?php echo $_SESSION['full_name'] ?></b>
         <button id="add_task">Add Task</button>
-        <a href="/cacttus-s3-basic-web/task-menagment/signout_api.php">Sign Out</a>
+        <a href="/cacttus-s3-basic-web/task-menagment/signout.php">Sign Out</a>
          
         
 
