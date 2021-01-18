@@ -15,15 +15,15 @@
 <center>
         <br>
         Welcome <b><?php echo $_SESSION['full_name'] ?></b>
-        <button id="add_task">Add Task</button>
-        <a href="/cacttus-s3-basic-web/task-menagment/signout.php">Sign Out</a><br><br>
+        <button class="btn btn-success" id="add_task">Add Task</button>
+        <a class="btn btn-primary" href="/cacttus-s3-basic-web/task-menagment/signout.php">Sign Out</a><br><br>
          
           
 <?php
 
 $userId = $_SESSION['user_id'];
 
-$tasks = getTasksFromDb(); //getUserPosts($userId);
+$tasks = getTasksFromDb();
 
 if (empty($tasks)) {
 ?>
@@ -41,10 +41,10 @@ if (empty($tasks)) {
     <table class="table">
         <thead>
         <tr>
-
         <td>Title: <?php echo $task['taskTitle']; ?><br> Descrption: <?php echo $task['taskDescription']; ?> 
         <br> Status: <?php echo $task['status'] ?> 
         </td>
+        
         <td> 
         <?php
         if ($_SESSION['user_id'] == $task['user_id']) {
@@ -52,6 +52,7 @@ if (empty($tasks)) {
         <td>
             <a href='delete.php?delete= <?php echo $task['taskID'] ?>' class="btn btn-danger">Delete</a>
         </td>
+        
         <?php
         }
         ?>

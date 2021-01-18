@@ -65,26 +65,7 @@
         }
         
     }
-    // function register(){
-    //    const fullname = $("#id_fullname").val();
-    //    const email = $("#id_email").val();
-    //    const password = $("#id_password").val();
 
-    //    const apiEndpoint = "http://localhost/cacttus-s3-basic-web/task-menagment/register_api.php" 
-
-    //    $.post(apiEndpoint,{
-    //        'full_name' : fullname,
-    //        'email' : email,
-    //        'password' : password
-    //    },function(response){
-    //         if(response.success == false){
-    //             alert(response.message);
-    //         }else{
-    //             alert(response.message);
-    //         }
-    //    });
-
-    // }
 
 
 </script>

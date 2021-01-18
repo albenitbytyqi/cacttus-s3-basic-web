@@ -89,10 +89,6 @@
     }
     function getTasksFromDb(){
         global $dbconn;
-
-        // $sqlQuery = "SELECT `tasks`.*, `user`.full_name FROM `tasks` 
-        // INNER JOIN `users` ON `users`.id = `tasks`.user_id";
-
         $sqlQuery = "Select * from tasks where user_id = " . $_SESSION['user_id'];
 
         $statemant = $dbconn->prepare($sqlQuery);
