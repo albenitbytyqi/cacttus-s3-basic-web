@@ -37,13 +37,13 @@
         die();
     }
 
-    // if (checkUserByEmail($email)) {
-    //     echo json_encode([
-    //         'success' => false,
-    //         'message' => "This User Is Alredy Registred!"
-    //     ]);
-    //     die();
-   // }
+//     if (checkUserByEmail($email)) {
+//         echo json_encode([
+//             'success' => false,
+//             'message' => "This User Is Alredy Registred!"
+//         ]);
+//         die();
+//    }
 
     storeUserToDb($user);
 
@@ -54,6 +54,6 @@
     //     ]);
     //     die();
     // }
-    header("location: /cacttus-s3-basic-web/task-menagment/register_ajax.php");
-   //echo
+   // header("location: /cacttus-s3-basic-web/task-menagment/register_ajax.php");
+   echo "Welcome.". $fullName ." Please click <a href='/cacttus-s3-basic-web/task-menagment/login_ajax.php'>here</a> to login!";
 ?>
