@@ -45,7 +45,7 @@ if (empty($tasks)) {
         <td>Title: <?php echo $task['taskTitle']; ?><br> Descrption: <?php echo $task['taskDescription']; ?> 
         <br> Status: <?php echo $task['status'] ?> 
         </td>
-        <td>
+        <td> 
         <?php
         if ($_SESSION['user_id'] == $task['user_id']) {
         ?>
