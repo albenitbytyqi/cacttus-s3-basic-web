@@ -9,7 +9,7 @@
 <body>
     <center>
         <h4>Task Menagment Tool - REGISTER</h4>
-        <form onsubmit="return passwordCheck();" method="POST" action="/cacttus-s3-basic-web/task-menagment/register_api.php">
+        <form onsubmit="return passwordCheck(); " method="POST" action="/cacttus-s3-basic-web/task-menagment/register_api.php">
             <label>Full Name:</label><br>
             <input id="id_fullname" type="text" name="full_name" required/><br>
             <label>Email:</label><br>
@@ -18,7 +18,7 @@
             <input id="id_password" type="password" name="password"/><br>
             <span id="demo"></span>
             <br>
-            <input type="submit" value="Register"/>
+            <input  type="submit" value="Register"/>
         </form>
         <br>
         <a href="/cacttus-s3-basic-web/task-menagment/login_ajax.php">Log In</a>
